@@ -3,7 +3,7 @@ import styles from './Tasks.module.css';
 export function Tasks(){
 
     return (
-        <div className={styles.tasks}>
+        <section className={styles.tasks}>
             <div className={styles.tasksInfo}>
                 <div className={`${styles.tasksCount} ${styles.tasksCreated}`}>
                     <strong>Tarefas criadas</strong>
@@ -24,6 +24,6 @@ export function Tasks(){
                 </div>
 
             </div>
-        </div>
+        </section>
     )
 }
