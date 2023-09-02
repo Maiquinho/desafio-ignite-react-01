@@ -1,7 +1,18 @@
+import { Header } from './components/Header';
+import { NewTaskForm } from './components/NewTaskForm';
+
 import './global.css';
+import styles from './App.module.css';
 
 export default function App() {
   return (
-    <h1>Hello World</h1>
+    <div>
+      <Header />
+
+      <main className={styles.container}>
+        <NewTaskForm />
+      </main>
+
+    </div>
   )
 }
