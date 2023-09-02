@@ -7,7 +7,7 @@ import styles from './App.module.css';
 
 export default function App() {
   return (
-    <div>
+    <>
       <Header />
 
       <main className={styles.container}>
@@ -15,6 +15,6 @@ export default function App() {
         <Tasks />
       </main>
 
-    </div>
+    </>
   )
 }
