@@ -10,3 +10,7 @@
 
     padding: 4rem 1.5rem;
 }
+
+.emptyTasks p {
+    text-align: center;
+}
