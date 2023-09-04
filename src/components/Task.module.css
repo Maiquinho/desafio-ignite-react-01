@@ -1,0 +1,45 @@
+.task {
+    background: var(--gray-500);    
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: .75rem;
+
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+    
+    padding: 1rem;
+
+    transition: border-color .2s;
+}
+
+.task span {
+    color: var(--gray-100);
+
+    font-size: var(--text-sm);
+}
+
+.task.checked {
+    background: var(--gray-500);  
+    border: 1px solid var(--gray-500);
+} 
+
+.task.checked span {
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
+
+.task .deleteTask {
+    cursor: pointer;
+    margin: .25rem;
+}
+
+.task .deleteTask svg {
+    fill: var(--gray-300);
+    transition: fill .2s;
+}
+
+.task .deleteTask:hover svg {
+    fill: var(--danger);
+}
