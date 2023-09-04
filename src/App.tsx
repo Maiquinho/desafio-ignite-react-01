@@ -49,6 +49,19 @@ export default function App() {
   function handleDeleteTask(id: number){
     setTasks(tasks => tasks.filter(task => task.id !== id));
   }
+
+  function handleCheckTask(id: number, checked: boolean){
+    
+    const updatedTaskCheck = tasks.map(task => {
+      if(task.id === id){
+        task.checked = checked;
+      }
+      return task;
+    });
+
+    setTasks(updatedTaskCheck);
+
+  }
   
 
   return (
@@ -94,6 +107,7 @@ export default function App() {
                   content={task.content}
                   checked={task.checked}
                   onDelete={handleDeleteTask}
+                  onCheck={handleCheckTask}
                   key={task.id} 
                 />
               ))

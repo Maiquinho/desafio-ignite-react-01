@@ -1,14 +1,41 @@
-import { Trash } from '@phosphor-icons/react';
-import { TaskCheckbox } from './TaskCheckbox';
+import { ChangeEvent, useState } from 'react';
+import { Check, Trash } from '@phosphor-icons/react';
 import styles from './Task.module.css';
 
-export function Task(){
+
+interface TaskProps {
+    id: number;
+    content: string;
+    checked: boolean;
+    onDelete: (id: number) => void;
+    onCheck: (id: number, checked: boolean) => void;
+}
+
+export function Task({ id, content, checked, onDelete, onCheck }: TaskProps){
+
+    const [isChecked, setIsChecked] = useState(checked);
+
+    function handleCheckChange(event: ChangeEvent<HTMLInputElement>){
+        const inputCheckboxPrevChecked = event.target.checked;
+        setIsChecked(inputCheckboxPrevChecked);
+        onCheck(id, inputCheckboxPrevChecked);
+    }
+    
+    function handleDeleteClick(){
+        onDelete(id);
+    }
+
 
     return (
-        <div className={`${styles.task} ${styles.checked}`}>
-            <TaskCheckbox />
-            <span>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</span>
-            <button className={styles.deleteTask}>
+        <div className={`${styles.task} ${isChecked ? `${styles.checked}` : '' }`}>
+            <label className={`${styles.checkboxLabel} ${isChecked ? `${styles.checkboxLabelChecked}` : '' }`}>
+                {isChecked && (
+                    <Check size={10} fill='#fff' weight="bold" />
+                )}
+                <input type="checkbox" checked={isChecked} onChange={handleCheckChange} />
+            </label>
+            <span>{content}</span>
+            <button className={styles.deleteTask} onClick={handleDeleteClick}>
                 <Trash width={16} height={16} weight='bold' />
             </button>
         </div>
