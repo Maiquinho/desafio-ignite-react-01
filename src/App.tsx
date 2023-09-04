@@ -24,7 +24,7 @@ export default function App() {
       content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
       checked: false,
     },
-  ]; 
+  ];
 
   return (
     <>
@@ -32,30 +32,30 @@ export default function App() {
 
       <main className={styles.container}>
         <form className={styles.taskForm}>
-            <input type="text" placeholder="Adicione uma nova tarefa" />
-            <button>Criar <PlusCircle width={20} height={20} /></button>
+          <input type="text" placeholder="Adicione uma nova tarefa" />
+          <button>Criar <PlusCircle width={20} height={20} /></button>
         </form>
         <section className={styles.tasks}>
-            <div className={styles.tasksInfo}>
-                <div className={`${styles.tasksCount} ${styles.tasksCreated}`}>
-                    <strong>Tarefas criadas</strong>
-                    <span>5</span>
-                </div>
-                <div className={`${styles.tasksCount} ${styles.tasksDone}`}>
-                    <strong>Concluídas</strong>
-                    <span>2 de 5</span>
-                </div>
+          <div className={styles.tasksInfo}>
+            <div className={`${styles.tasksCount} ${styles.tasksCreated}`}>
+              <strong>Tarefas criadas</strong>
+              <span>5</span>
             </div>
-            <div className={styles.taskList}>
-
-                {tasks.length == 0 && (
-                    <EmptyTasks />
-                )}
-                {tasks.length > 0 && 
-                    tasks.map(task => <Task key={task.id} />)
-                }
-
+            <div className={`${styles.tasksCount} ${styles.tasksDone}`}>
+              <strong>Concluídas</strong>
+              <span>2 de 5</span>
             </div>
+          </div>
+          <div className={styles.taskList}>
+
+            {tasks.length == 0 && (
+              <EmptyTasks />
+            )}
+            {tasks.length > 0 &&
+              tasks.map(task => <Task key={task.id} />)
+            }
+
+          </div>
         </section>
       </main>
     </>
