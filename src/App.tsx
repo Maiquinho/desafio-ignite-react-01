@@ -45,6 +45,10 @@ export default function App() {
     event.target.setCustomValidity('');
     setNewInputTaskContent(event.target.value);
   }
+
+  function handleDeleteTask(id: number){
+    setTasks(tasks => tasks.filter(task => task.id !== id));
+  }
   
 
   return (
@@ -86,8 +90,10 @@ export default function App() {
             {tasks.length > 0 &&
               tasks.map(task => (
                 <Task 
+                  id={task.id}
                   content={task.content}
                   checked={task.checked}
+                  onDelete={handleDeleteTask}
                   key={task.id} 
                 />
               ))
