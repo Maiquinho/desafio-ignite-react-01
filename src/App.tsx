@@ -9,7 +9,21 @@ import styles from './App.module.css';
 export default function App() {
 
   const tasks = [
-    1, 2, 3, 4, 5
+    {
+      id: 1,
+      content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
+      checked: false,
+    },
+    {
+      id: 2,
+      content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
+      checked: false,
+    },
+    {
+      id: 3,
+      content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
+      checked: false,
+    },
   ] 
 
   return (
@@ -38,7 +52,7 @@ export default function App() {
                     <EmptyTasks />
                 )}
                 {tasks.length > 0 && 
-                    tasks.map(task => <Task key={task} />)
+                    tasks.map(task => <Task key={task.id} />)
                 }
 
             </div>
