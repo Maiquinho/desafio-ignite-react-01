@@ -26,8 +26,9 @@ export default function App() {
       checked: false,
     },
   ]); 
-
   const [newInputTaskContent, setNewInputTaskContent] = useState('');
+  const allTasks = tasks.length;
+  const tasksDone = tasks.filter(task => task.checked === true).length;
 
 
   function handleAddTask(event: FormEvent){
@@ -70,11 +71,11 @@ export default function App() {
           <div className={styles.tasksInfo}>
             <div className={`${styles.tasksCount} ${styles.tasksCreated}`}>
               <strong>Tarefas criadas</strong>
-              <span>5</span>
+              <span>{allTasks}</span>
             </div>
             <div className={`${styles.tasksCount} ${styles.tasksDone}`}>
               <strong>Concluídas</strong>
-              <span>2 de 5</span>
+              <span>{`${tasksDone} de ${allTasks}`}</span>
             </div>
           </div>
           <div className={styles.taskList}>
